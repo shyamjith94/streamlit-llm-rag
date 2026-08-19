@@ -1,0 +1,30 @@
+[project]
+name = "streamlit-llm-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "shyamjith", email = "shyamjithsmaniyoor@gmail.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "dotenv>=0.9.9",
+    "langchain>=0.3.30",
+    "langgraph>=0.6.11",
+    "streamlit>=1.50.0",
+    "watchdog>=6.0.0",
+]
+
+[project.scripts]
+streamlit-llm-rag = "streamlit_llm_rag:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.pyright]
+extraPaths = ["."]
+
+[tool.uv]
+package = false
+
