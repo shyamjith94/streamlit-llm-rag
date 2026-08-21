@@ -4,10 +4,12 @@ import streamlit as st
 
 # @st.cache_resource
 def make_migrations():
-    result = subprocess.run(["alembic", "upgrade", "head"])
+    result = subprocess.run(
+        ["alembic", "upgrade", "head"],
+        capture_output=True,
+        text=True,
+    )
+
     if result.returncode != 0:
-        st.error("Migration failed")
-        raise RuntimeError(f"Migration failed {result.stderr}")
-    else:
-        st.success("Migration completed")
-    return True
+        print(result.stderr)
+        raise RuntimeError("Migration failed")
