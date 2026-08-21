@@ -5,9 +5,10 @@ from src.navigations import get_navigations
 from src.st_state import AgentChatMessage
 from src.st_state import UserData
 from src.ui.pages.styles import navigation_css
-
+from src.config.migration import make_migration
 load_dotenv()
 def main():
+    make_migration()
     navigation_css()
 
     if "agent" not in st.session_state:

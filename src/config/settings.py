@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     db_name : str = Field(default="graphql", validation_alias=AliasChoices("DB_NAME", "db_name"))
 
     database_url:str = Field(
-        default="postgresql://postgres:postgres@localhost:5432/streamlit_rag",
+        default="postgresql://postgres:postgres@localhost:5432/ ",
         validation_alias=AliasChoices("DATABASE_URL", "database_url")
     )
     @model_validator(mode="after")
