@@ -2810,6 +2810,20 @@ wheels = [
 ]
 
 [[package]]
+name = "neon-api"
+version = "0.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pydantic" },
+    { name = "requests", version = "2.32.5", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
+    { name = "requests", version = "2.34.2", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/9d/5f/228116779ab3607de18ff476f843c2e7ea3c93c82fabe2129ecea2d988da/neon_api-0.3.0.tar.gz", hash = "sha256:6b4b8b27e8e57b27d127de2cdd41a65c157bedcf6f133ae243a747b17ff5abc0", size = 20204, upload-time = "2025-01-16T21:05:26.323Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/20/c7/75e0c12af22702b73795719c34e1da8859873b967b04f5dd9f53cdcd4aae/neon_api-0.3.0-py2.py3-none-any.whl", hash = "sha256:eb4e47a0a1d53f64380defa05a207c80959263334b98442c8685a36fa1c77183", size = 16879, upload-time = "2025-01-16T21:05:25.24Z" },
+]
+
+[[package]]
 name = "numpy"
 version = "2.0.2"
 source = { registry = "https://pypi.org/simple" }
@@ -5808,6 +5822,7 @@ dependencies = [
     { name = "langchain-tavily", version = "0.2.18", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
     { name = "langgraph", version = "0.6.11", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
     { name = "langgraph", version = "1.2.11", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.10'" },
+    { name = "neon-api" },
     { name = "psycopg2-binary" },
     { name = "sqlalchemy" },
     { name = "streamlit", version = "1.50.0", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.10'" },
@@ -5827,6 +5842,7 @@ requires-dist = [
     { name = "langchain-openai", specifier = ">=0.3.35" },
     { name = "langchain-tavily", specifier = ">=0.2.11" },
     { name = "langgraph", specifier = ">=0.6.11" },
+    { name = "neon-api", specifier = ">=0.3.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.12" },
     { name = "sqlalchemy", specifier = ">=2.0.52" },
     { name = "streamlit", specifier = ">=1.50.0" },

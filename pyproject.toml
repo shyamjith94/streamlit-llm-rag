@@ -17,6 +17,7 @@ dependencies = [
     "langchain-openai>=0.3.35",
     "langchain-tavily>=0.2.11",
     "langgraph>=0.6.11",
+    "neon-api>=0.3.0",
     "psycopg2-binary>=2.9.12",
     "sqlalchemy>=2.0.52",
     "streamlit>=1.50.0",
