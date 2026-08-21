@@ -33,9 +33,11 @@ def test_db():
     except Exception as e:
         st.error(f"PostgreSQL connection failed: {type(e).__name__}")
         st.code(str(e))
+
+
 def main():
-    test_db()
-    # make_migrations()
+    # test_db()
+    make_migrations()
     navigation_css()
 
     if "agent" not in st.session_state:

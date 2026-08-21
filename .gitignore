@@ -216,3 +216,5 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Alembic configuration containing DB credentials
+alembic.ini
