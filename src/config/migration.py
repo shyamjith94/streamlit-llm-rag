@@ -1,15 +1,15 @@
 import subprocess
 import streamlit as st
+from pathlib import Path
+from alembic.config import Config
+from alembic import command
 
-
-# @st.cache_resource
+@st.cache_resource
 def make_migrations():
-    result = subprocess.run(
-        ["alembic", "upgrade", "head"],
-        capture_output=True,
-        text=True,
+    base_dir = Path(__file__).resolve().parents[2]
+
+    alembic_cfg = Config(
+        str(base_dir / "alembic.ini")
     )
 
-    if result.returncode != 0:
-        print(result.stderr)
-        raise RuntimeError("Migration failed")
+    command.upgrade(alembic_cfg, "head")
