@@ -26,9 +26,11 @@ def register_css():
         }
 
         .block-container {
-            max-width: 480px;
-            padding-top: 7vh;
-            padding-bottom: 5vh;
+            width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 7vh 20px 5vh 20px;
+            box-sizing: border-box;
         }
 
 
@@ -37,10 +39,15 @@ def register_css():
            ========================= */
 
         .register-card {
+            width: 100%;
+            box-sizing: border-box;
+            height: auto;
+            min-height: 0;
             background: rgba(255, 255, 255, 0.96);
             border: 1px solid rgba(226, 232, 240, 0.9);
             border-radius: 24px;
-            padding: 36px 38px 32px 38px;
+            padding: 36px 38px 32px;
+
             box-shadow:
                 0 20px 50px rgba(15, 23, 42, 0.08),
                 0 4px 12px rgba(15, 23, 42, 0.04);
@@ -96,6 +103,14 @@ def register_css():
             line-height: 1.6;
             color: #64748b;
             margin-bottom: 28px;
+        }
+
+         /* =========================
+           Form 
+           ========================= */
+        div[data-testid="stForm"] {
+            width: 100% !important;
+            max-width: 100% !important;
         }
 
 
