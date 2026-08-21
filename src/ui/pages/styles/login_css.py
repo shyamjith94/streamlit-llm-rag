@@ -24,9 +24,11 @@ def login_css():
         }
 
         .block-container {
-            max-width: 480px;
-            padding-top: 9vh;
-            padding-bottom: 5vh;
+            max-width: 100%;
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 7vh 20px 5vh 20px;
+            box-sizing: border-box;
         }
 
 
@@ -117,7 +119,9 @@ def login_css():
             margin-bottom: 28px;
         }
 
-
+        
+        
+        
         /* =========================
            Labels
            ========================= */
