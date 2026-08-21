@@ -123,7 +123,7 @@ def _steps_data():
                 )
 
 
-def _redirect_to_chat(agent_page):
+def _redirect_to_chat():
     """Redirect user to the chat page."""
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
@@ -165,13 +165,13 @@ def _footer():
     )
 
 
-def home(agent_page):
+def home():
     home_css()
     _baner_data()
 
     st.write("")
 
-    _redirect_to_chat(agent_page)
+    _redirect_to_chat()
 
     _feature_data()
     _steps_data()
