@@ -1,6 +1,6 @@
 import streamlit as st
 
-def chat_css():
+def agent_css():
     st.html(
         """
         <style>

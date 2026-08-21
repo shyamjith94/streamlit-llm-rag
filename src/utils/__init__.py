@@ -1,0 +1,1 @@
+from .shared import is_valid_email
