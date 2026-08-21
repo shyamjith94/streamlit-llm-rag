@@ -7,8 +7,35 @@ from src.st_state import UserData
 from src.ui.pages.styles import navigation_css
 from src.config.migration import make_migrations
 load_dotenv()
+
+
+
+
+import os
+import psycopg2
+import streamlit as st
+
+def test_db():
+    database_url = "postgresql://neondb_owner:npg_6HPbFkwgr5dl@ep-quiet-hall-aymczit8-pooler.c-5.us-east-2.aws.neon.tech/streamlit_rag?sslmode=require&channel_binding=require"
+
+    try:
+        conn = psycopg2.connect(database_url)
+
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT version();")
+            result = cursor.fetchone()
+
+        conn.close()
+
+        st.success("PostgreSQL connection successful")
+        st.write(result)
+
+    except Exception as e:
+        st.error(f"PostgreSQL connection failed: {type(e).__name__}")
+        st.code(str(e))
 def main():
-    make_migrations()
+    test_db()
+    # make_migrations()
     navigation_css()
 
     if "agent" not in st.session_state:
