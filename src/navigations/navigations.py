@@ -2,8 +2,9 @@ import streamlit as st
 from src.ui.pages.home import home
 from src.ui.pages.connector import connector
 from src.ui.pages.agent import agent
-from src.ui.pages.login_page import login_page
-from src.ui.pages.register_page import register_page
+from src.ui.pages.login import login_page
+from src.ui.pages.register import register_page
+from src.ui.pages.logout import logout_page
 
 agent_page_obj =st.Page(
     agent,
@@ -40,6 +41,12 @@ register_page_obj = st.Page(
     url_path="register_page"
 )
 
+logout_page_obj = st.Page(
+    logout_page,
+    title="Logout",
+    icon=":material/logout:",
+    url_path="logout_page"
+)
 
 
 def chat_button(page):
@@ -62,6 +69,9 @@ authenticated_navigations = {
     "Chat":[
         agent_page_obj,
         connector_page_obj
+    ],
+    "Logout":[
+        logout_page_obj
     ]
 }
 

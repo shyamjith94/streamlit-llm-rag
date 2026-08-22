@@ -1,4 +1,4 @@
-from src.models import User
+from src.models import Users
 from sqlalchemy.orm import Session
 from argon2 import PasswordHasher
 
@@ -10,7 +10,7 @@ def _hash_password(password:str)->str:
 def _verify_password(password:str,hashed_password:str)->bool:
     return ph.verify(hashed_password, password)
 
-def register_user(user:User, db:Session):
+def register_user(user:Users, db:Session):
     user.password = _hash_password(user.password)
     db.add(user)
     db.commit()
@@ -18,7 +18,7 @@ def register_user(user:User, db:Session):
     return user
 
 def login_user(email:str, password:str, db:Session):
-    user = db.query(User).filter(User.email == email).first()
+    user = db.query(Users).filter(Users.email == email).first()
     if user and _verify_password(password, user.password):
         return user
     return None

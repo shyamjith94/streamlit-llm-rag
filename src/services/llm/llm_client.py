@@ -15,7 +15,7 @@ def get_llm_client():
         return ChatGroq(
             # model="openai/gpt-oss-20b",
             model="openai/gpt-oss-120b",
-            # max_tokens=20000,
+            max_tokens=2000,
             temperature=0.2,
             api_key=settings.groq_api_key,
             streaming=True

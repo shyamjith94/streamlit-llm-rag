@@ -5,7 +5,11 @@ from .state_handle import (
     make_login_true,
     init_cookies,
     restore_cookies,
-    remember_me
+    remember_me,
+    get_user_info,
+    get_save_user_session_id,
+    set_save_user_session_id,
+    logout_user,
 )
 
 __all__ = [
@@ -16,5 +20,9 @@ __all__ = [
     "make_login_true",
     "init_cookies",
     "restore_cookies",
-    "remember_me"
+    "remember_me",
+    "get_user_info",
+    "get_save_user_session_id",
+    "set_save_user_session_id",
+    "logout_user"
 ]
