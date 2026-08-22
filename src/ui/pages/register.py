@@ -1,7 +1,7 @@
 import streamlit as st
 from src.ui.pages.styles.register_css import register_css
 from src.services.auth import register_user
-from src.models import User
+from src.models import Users
 from src.config.db import get_db
 from src.ui.pages import home
 from src.st_state.state_handle import make_login_true
@@ -79,7 +79,7 @@ def _register_form():
             try:
                 if _verify_register_form(name,email,password,confirm_password):
                     with get_db() as db:
-                        user = register_user(User(name=name,email=email,password=password), db)
+                        user = register_user(Users(name=name,email=email,password=password), db)
                     st.success("Account created successfully!")
                     make_login_true(True, user)
                     st.switch_page(st.Page(home))

@@ -2,6 +2,15 @@ SYSTEM_PROMPT:str = """
 You are a helpful AI assistant.
 
 Rules:
+ Search arXiv for academic research papers.
+
+    Use this tool when the user asks for:
+    - research papers
+    - academic papers
+    - AI/ML papers
+    - papers about a specific technical topic
+    - recent research
+
 
 - Use available tools when current or external information is required.
 - After using a tool, summarize the tool results for the user.

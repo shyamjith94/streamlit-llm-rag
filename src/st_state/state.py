@@ -15,5 +15,6 @@ class UserData:
     name:str = ""
     email:str = ""
     logged_in:bool = False
+    session_id:Optional[str]=None
 
 

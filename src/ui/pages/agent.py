@@ -1,8 +1,12 @@
 import streamlit as st
 from src.ui.pages.styles import agent_css
-from src.st_state import show_or_hide_suggesion,suggesion_status
 from src.services.llm.graph import invoke_graph
-
+from src.st_state import (show_or_hide_suggesion,
+get_save_user_session_id,
+set_save_user_session_id,
+suggesion_status)
+from src.services.llm.save_user_messages import create_or_save_session
+import uuid
 
 def _header():
     st.html(
@@ -100,18 +104,23 @@ def agent():
     agent_css()
     _header()
     _welcome()
-
+   
     prompt = st.chat_input(
         "Ask something about your knowledge base..."
     )
     if prompt:
+        session_id = get_save_user_session_id()
+        if session_id is None:
+            session_id = st.session_state.get("session_id", uuid.uuid4())
+            set_save_user_session_id(session_id)
+            create_or_save_session(sesson_id=session_id)
         show_or_hide_suggesion(False)
         with st.chat_message("user"):
             st.html(prompt)
         # with st.chat_message("assistant"):
         #     st.write_stream(get_response(prompt))
         with st.spinner("Thinking..."):
-            st.write_stream(invoke_graph(prompt))
+            st.write_stream(invoke_graph(prompt, session_id))
     if suggesion_status():
         _suggesions()
 

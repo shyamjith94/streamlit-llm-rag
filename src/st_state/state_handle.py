@@ -1,7 +1,9 @@
 import streamlit as st
 from streamlit_cookies_controller import CookieController
-from src.models import User
+from src.models import Users
 from typing import Optional
+
+
 cookie_controller  = CookieController()
 
 def show_or_hide_suggesion(value:bool):
@@ -10,7 +12,7 @@ def show_or_hide_suggesion(value:bool):
 def suggesion_status():
     return st.session_state.agent.suggestions
 
-def make_login_true(value:bool, user:Optional[User] =None):
+def make_login_true(value:bool, user:Optional[Users] =None):
     st.session_state.user_data.logged_in = value
     if user is not None:
         init_user_data(user)
@@ -33,13 +35,13 @@ def restore_cookies():
     return False    
         
 
-def init_user_data(user_data:User):
+def init_user_data(user_data:Users):
     st.session_state.user_data.id = user_data.id
     st.session_state.user_data.name = user_data.name
     st.session_state.user_data.email = user_data.email
     st.session_state.user_data.logged_in = True
 
-def remember_me(remember:bool,user:User):
+def remember_me(remember:bool,user:Users):
     """
     Args:
         remember (bool): whether to remember the user
@@ -59,5 +61,16 @@ def remember_me(remember:bool,user:User):
     
     
     
+def get_user_info():
+    return st.session_state.user_data
+def get_save_user_session_id():
+    return st.session_state.user_data.session_id
+
+def set_save_user_session_id(session_id:str):
+    st.session_state.user_data.session_id = session_id
+
+def logout_user():
+    # st.switch_page(st.Page(login_page))
+    st.session_state.clear()
     
   

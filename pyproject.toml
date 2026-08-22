@@ -18,12 +18,15 @@ dependencies = [
     "langchain-tavily>=0.2.11",
     "langgraph>=0.6.11",
     "neon-api>=0.3.0",
-    "psycopg2-binary>=2.9.12",
-    "psycopg[binary]>=3.2.13",
+    "psycopg[binary]>=3.2.13; sys_platform == 'darwin'",
+    "psycopg2-binary>=2.9.12; sys_platform == 'linux'",
     "sqlalchemy>=2.0.52",
     "streamlit>=1.50.0",
     "streamlit-cookies-controller>=0.0.4",
     "watchdog>=6.0.0",
+    "arxiv>=2.4.1",
+    "pymupdf>=1.26.5",
+    "langgraph-checkpoint-postgres>=2.0.25",
 ]
 
 [project.scripts]
